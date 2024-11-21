@@ -643,6 +643,34 @@ button:hover {
   font-size: 1.2em; /* Size of the home icon */
 }
 
+/* Download Resume Button Styling */
+.download-resume {
+  position: fixed; /* Fixes the button to the right side of the screen */
+  top: 100px; /* Adjust vertical positioning */
+  right: 20px; /* Distance from the right edge */
+  background-color: #66a5ad; /* Button background color */
+  color: white; /* Text color */
+  font-size: 1em; /* Font size */
+  font-weight: bold; /* Bold text */
+  padding: 10px 20px; /* Button padding */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Flex for icon and text alignment */
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth hover effects */
+  z-index: 1000; /* Keep above other elements */
+}
+
+.download-resume:hover {
+  background-color: #557a85; /* Darker shade on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+
 #homeButton:hover {
   background-color: #264653;
 }
@@ -696,5 +724,155 @@ button:hover {
 
   .about-image {
     width: 80%;
+  }
+}
+
+
+/* Mobile Responsive Styling */
+@media (max-width: 768px) {
+  /* General Adjustments */
+  body {
+    padding-top: 50px; /* Adjust padding for smaller screens */
+  }
+
+  header {
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 10px;
+  }
+
+  header nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  header nav a {
+    font-size: 0.9em;
+  }
+
+  .get-in-touch {
+    margin-top: 10px;
+    font-size: 0.8em;
+    padding: 5px;
+  }
+
+  /* Hero Section */
+  #hero {
+    padding: 20px;
+  }
+
+  .circular-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  #hero .circle {
+    display: none; /* Hide ripple effects for simplicity */
+  }
+
+  /* About Section */
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .about-image {
+    width: 80%;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+
+  /* Projects Section */
+  .projects-carousel {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+  }
+
+  .project-card {
+    flex: 0 0 90%; /* Show one card at a time */
+    margin: 0 auto;
+  }
+
+  .project-card img {
+    height: 150px;
+  }
+
+  /* Experience Section */
+  .experience-scroll-container {
+    overflow-x: scroll;
+    gap: 10px;
+  }
+
+  .experience-card {
+    flex: 0 0 90%;
+    margin: 0 auto;
+  }
+
+  /* Skills Section */
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 10px;
+  }
+
+  .skill {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skill-info {
+    font-size: 0.8em;
+  }
+
+  /* Contact Section */
+  #contact {
+    padding: 40px 20px;
+  }
+
+  .contact-details {
+    text-align: center;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .bottom-social-icons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Enhancements for Horizontal Scrolling Sections */
+.projects-carousel,
+.experience-scroll-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.projects-carousel::-webkit-scrollbar,
+.experience-scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for smooth appearance */
+}
+
+@media (max-width: 768px) {
+  .download-resume {
+    top: 20px; /* Reduce distance from top */
+    right: 10px; /* Reduce distance from right */
+    font-size: 0.9em; /* Smaller font size */
+    padding: 8px 15px; /* Smaller button padding */
   }
 }

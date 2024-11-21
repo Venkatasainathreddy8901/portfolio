@@ -38,6 +38,11 @@
       <img src="assets/images/IMG_9378.jpg" alt="Profile Image" class="circular-image">
     </div>
 
+    <a href="assets/Doc's/Venkata Sainath Python Resume.docx" class="download-resume" download>
+      <i class="fa fa-download"></i> Download Resume
+    </a>
+
+
     <div class="title-container">
       <h2>Machine Learning Engineer</h2>
       <p>Powering AI solutions with real-time ML and data-driven insights.</p>
@@ -382,3 +387,30 @@ document.getElementById('nextButton').addEventListener('click', scrollNext);
 document.getElementById('prevButton').addEventListener('click', scrollPrev);
 </script>
 
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('http://localhost:3000/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        alert('Email sent successfully!');
+      } else {
+        alert('Error sending email. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An unexpected error occurred.');
+    }
+  });
+</script>
