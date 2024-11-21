@@ -80,19 +80,19 @@ header nav a:hover {
 .social-icons a {
   color: #555; /* Adjust color */
   text-decoration: none;
-  font-size: 1.4em; /* Increase icon size */
+  font-size: 1.0em; /* Increase icon size */
   transition: color 0.3s;
 }
 
 .get-in-touch {
   position: absolute;
   right: 170px; /* Aligns to the top right corner */
-  top: 5px;
-  bottom: 5px;
+  top: 9px;
+  bottom: 10px;
   font-size: 1em;
-  background-color: #264653;
+  background-color:  #e8edee ;
   color: #f7f7f7;
-  padding: 5px 10px;
+  padding: 5px 5px;
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s;
@@ -200,65 +200,301 @@ section {
   text-align: center;
 }
 
-/* Project & Experience Cards */
-.project-card, .experience-card {
-  background-color: #606060;
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 8px;
-  color: #F7F7F7;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover, .experience-card:hover {
-  background-color: #264653;
-  transform: scale(1.02);
-}
-
-/* Skills Section Styling */
-#skills {
+/* Experience card Styling */
+#experience {
   padding: 60px 20px;
-  max-width: 1000px;
+  max-width: 100%;
   margin: 0 auto;
-  color: #333333;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+#experience h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.experience-scroll-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between cards */
+  overflow-x: auto; /* Enables horizontal scrolling */
+  padding: 10px 0;
+  scrollbar-width: thin; /* For custom scrollbars */
+  scrollbar-color: #888 #f7f7f7;
+}
+
+.experience-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.experience-scroll-container::-webkit-scrollbar-track {
+  background: #f7f7f7;
+}
+
+.experience-scroll-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.experience-card {
+  background-color: #f7f7f7;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 350px; /* Ensures consistent card size */
+  max-width: 350px;
+  flex-shrink: 0; /* Prevent cards from shrinking */
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Container for Experience Section */
+.experience-container {
+  display: flex;
+  justify-content: center; /* Centers the cards horizontally */
+  align-items: center; /* Aligns the cards vertically if necessary */
+  flex-wrap: wrap; /* Ensures cards wrap to the next row if needed */
+  gap: 20px; /* Adds spacing between the cards */
+  padding: 20px;
+  margin: 0 auto; /* Centers the container itself within the page */
+  max-width: 1200px; /* Limits the width of the container */
+}
+
+
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.experience-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.experience-title {
+  flex: 1;
+}
+
+.experience-title h3 {
+  font-size: 1.2em;
+  margin: 0;
+  color: #333;
+}
+
+.company-name {
+  font-size: 1em;
+  color: #66a5ad;
+}
+
+.experience-icons {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.experience-icons i {
+  font-size: 1.5em;
+  color: #888;
+}
+
+.experience-icons i:hover {
+  color: #264653;
+}
+
+.experience-dates {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.experience-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-details li {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Projects Section */
+#projects {
+  padding: 60px 20px;
+  max-width: 60%;
   text-align: center;
 }
 
-.skills-container {
+.projects-carousel {
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enable snapping */
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-card {
+  flex: 0 0 100%; /* Each card takes 100% of the width */
+  scroll-snap-align: center; /* Snap to the center */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.project-card h3 {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: #264653;
+}
+
+.project-card p {
+  font-size: 1em;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.tech-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tech-icons i {
+  font-size: 1.5em;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.tech-icons i:hover {
+  color: #264653;
+}
+
+/* Scrollbar Styling */
+.projects-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-carousel::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.projects-carousel::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .project-card img {
+    height: 150px; /* Reduce image height for smaller screens */
+  }
+}
+
+
+
+/* Skills Section */
+#skills {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#skills h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 20px;
   justify-content: center;
 }
 
 .skill {
-  flex: 1 1 calc(50% - 20px); /* Two skills per row with some gap */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.progress-bar {
-  background-color: #dddfdf;
-  width: 100%;
-  height: 20px;
-  border-radius: 8px;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   overflow: hidden;
-  margin-top: 5px;
+  background-color: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 
-.progress {
-  background-color: #00c6d6;
-  height: 20px;
+.skill:hover {
+  transform: scale(1.1);
 }
 
-/* Responsive Design for Smaller Screens */
+.skill img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.skill-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skill:hover .skill-info {
+  opacity: 1;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
   .skill {
-    flex: 1 1 100%; /* Full-width for smaller screens */
+    width: 80px;
+    height: 80px;
+  }
+
+  .skill-info {
+    font-size: 0.9em;
   }
 }
 
@@ -268,7 +504,7 @@ section {
 #contact {
   padding: 60px 20px;
   text-align: center;
-  max-width: 800px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -339,6 +575,7 @@ section {
 
 .form-row input {
   flex: 1;
+  min-width: 0; /* Prevents input from overflowing */
 }
 
 input, textarea, button {
@@ -393,7 +630,7 @@ button:hover {
   background-color: #00c6d6;
   color: #f7f7f7;
   border: none;
-  border-radius: 5px;
+  border-radius: 100px;
   cursor: pointer;
   font-size: 1em;
   z-index: 1000;
