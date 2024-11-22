@@ -627,7 +627,7 @@ button:hover {
   bottom: 20px;
   left: 20px;
   padding: 10px 15px;
-  background-color: #00c6d6;
+  background-color: #66a5ad;
   color: #f7f7f7;
   border: none;
   border-radius: 100px;
@@ -874,5 +874,30 @@ button:hover {
     right: 10px; /* Reduce distance from right */
     font-size: 0.9em; /* Smaller font size */
     padding: 8px 15px; /* Smaller button padding */
+  }
+}
+
+.typing-effect {
+  font-family: Garamond, serif;
+  font-size: 2.2em;
+  color: #264653; /* Adjust color to match your theme */
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.cursor {
+  font-weight: bold;
+  color: #264653;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

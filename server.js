@@ -1,96 +1,55 @@
 require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.use(express.static('public'));
-
-const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
-  secure: process.env.EMAIL_SECURE === 'true', // Convert string to boolean if necessary
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
-
-
-app.post('/send-email', (req, res) => {
-  const { name, email, subject, message } = req.body;
-
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    subject: `Contact Form Submission: ${subject}`,
-    text: `You have a new message from ${name} (${email}):\n\n${message}`
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error); // Log specific error details
-      return res.status(500).send('Something went wrong. Please try again later.');
-    } else {
-      console.log('Email sent:', info.response);
-      res.status(200).send('Message sent successfully!');
-    }
-  });
-});
-
-const express = require('express');
-const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000; // You can change the port number
 
-// Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors());
 
-// Route to handle form submission
+// Nodemailer Transport
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER, // xyz@gmail.com
+    pass: process.env.EMAIL_PASS, // 1234 (or your app password)
+  },
+});
+
+// Email Sending Route
 app.post('/send-email', async (req, res) => {
-  const { name, email, message } = req.body;
+  const { name, email, message } = req.body; // Extract form data from request
 
-  // Configure Nodemailer transport
-  const transporter = nodemailer.createTransport({
-    service: 'gmail', // You can use any email service provider
-    auth: {
-      user: 'your-email@gmail.com', // Your email
-      pass: 'your-email-password', // Your email password or app password
-    },
-  });
+  // Email to the user
+  const userMailOptions = {
+    from: process.env.EMAIL_USER, // xyz@gmail.com
+    to: email, // abc@gmail.com (dynamically set from the form)
+    subject: 'Thank you for contacting me!',
+    text: `Hello ${name},\n\nThank you for reaching out. I have received your message:\n"${message}"\n\nI'll get back to you soon.\n\nBest regards,\nVenkata Sainath`,
+  };
 
-  // Email options
-  const mailOptions = {
-    from: 'your-email@gmail.com', // Sender email
-    to: 'your-email@gmail.com', // Your email where the message will be sent
+  // Email to yourself
+  const adminMailOptions = {
+    from: process.env.EMAIL_USER, // xyz@gmail.com
+    to: process.env.EMAIL_USER, // Your email (to receive form submissions)
     subject: 'New Contact Form Submission',
-    text: `You have a new contact form submission:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    text: `New message received from the contact form:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).send('Email sent successfully');
+    await transporter.sendMail(userMailOptions); // Send confirmation to the user
+    await transporter.sendMail(adminMailOptions); // Send form data to yourself
+
+    res.status(200).json({ message: 'Emails sent successfully!' });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).send('Error sending email');
+    console.error('Error sending emails:', error);
+    res.status(500).json({ error: 'Failed to send emails' });
   }
 });
 
-// Start the server
+// Start Server
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
-});
-
-
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
