@@ -8,7 +8,8 @@
   <meta name="keywords" content="Portfolio, Machine Learning Engineer, AI, Python Developer">
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -16,6 +17,7 @@
   <header>
     <div class="header-container">
       <nav>
+        <a href="#hero" aria-label="Home Section">Home</a>
         <a href="#about" aria-label="About Section">About</a>
         <a href="#projects" aria-label="Projects Section">Projects</a>
         <a href="#experience" aria-label="Experience Section">Experience</a>
@@ -38,7 +40,7 @@
     <div class="profile-container">
       <img src="assets/images/IMG_9378.jpg" alt="Profile Image" class="circular-image">
     </div>
-    <a href="assets/Doc's/Venkata_Sainath_Reddy_Pedaballi_Resume.docx">
+    <a href="<a href="assets/Doc's/Venkata_Sainath_Reddy_Pedaballi_Resume.docx" class="download-resume" download>
       <i class="fa fa-download"></i> Download Resume
     </a>
       <h2>Machine Learning Engineer</h2>
@@ -56,33 +58,36 @@
       <img src="assets/images/IMG_9378.jpg" alt="About Image" class="about-image">
       <div class="about-content">
         <h3>Here is a little about me</h3>
-        <p>Hey 👋🏼 I’m Venkata Sainath, a Machine Learning Engineer with over six years of experience designing real-time AI systems, deploying models like GPT and BERT, and building scalable data pipelines. I hold a B.Tech in Computer Science Engineering from JNTU Hyderabad and a Master’s in Industrial Engineering Management from Stevens Institute of Technology in the U.S. I specialize in developing innovative solutions, from fraud detection systems to VR-powered defect detection, leveraging tools like Kubernetes, AWS, and Python. Passionate about AI, IoT, and edge computing, I thrive on solving complex challenges and merging cutting-edge technology with impactful real-world applications. 🚀</p>
+        <p>Hey 👋🏼 I'm Venkata Sainath, a Machine Learning Engineer with over six years of experience designing real-time AI systems, deploying models like GPT and BERT, and building scalable data pipelines. I hold a B.Tech in Computer Science Engineering from JNTU Hyderabad and a Master's in Industrial Engineering Management from Stevens Institute of Technology in the U.S. I specialize in developing innovative solutions, from fraud detection systems to VR-powered defect detection, leveraging tools like Kubernetes, AWS, and Python. Passionate about AI, IoT, and edge computing, I thrive on solving complex challenges and merging cutting-edge technology with impactful real-world applications. 🚀</p>
       </div>
     </div>
   </section>
   <!-- Projects Section -->
 <section id="projects">
   <h2>Projects</h2>
-  <div class="projects-carousel">
-    <div class="project-card">
-      <img src="assets/images/projects/ICU Readmission Prediction System.webp" alt="Project 1 Image">
-      <h3>Project 1: ICU Readmission Prediction System</h3>
-      <p>The focus of this project is predicting ICU readmissions using machine learning models and clinical data. In other words, the project uses advanced data preprocessing techniques, predictive modeling, and statistical visualizations to identify patients at higher risk of readmission. This system aims to assist healthcare professionals in prioritizing high-risk cases and allocating resources effectively. By bridging the gap between data-driven insights and real-world medical decision-making, the project seeks to improve patient outcomes and optimize ICU resource utilization.</p>
-      <div class="tech-icons">
-        <i class="fa fa-python"></i>
-        <i class="fa fa-git"></i>
+  <div class="projects-container">
+    <div class="projects-carousel">
+      <div class="project-card">
+        <img src="assets/images/projects/ICU Readmission Prediction System.webp" alt="Project 1 Image">
+        <h3>Project 1: ICU Readmission Prediction System</h3>
+        <p>The focus of this project is predicting ICU readmissions using machine learning models and clinical data. In other words, the project uses advanced data preprocessing techniques, predictive modeling, and statistical visualizations to identify patients at higher risk of readmission. This system aims to assist healthcare professionals in prioritizing high-risk cases and allocating resources effectively. By bridging the gap between data-driven insights and real-world medical decision-making, the project seeks to improve patient outcomes and optimize ICU resource utilization.</p>
+        <div class="tech-icons">
+          <i class="fa fa-python"></i>
+          <i class="fa fa-git"></i>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="path-to-project-image2.jpg" alt="Project 2 Image">
+        <h3>Project 2: Portfolio Website</h3>
+        <p>Yes, I developed the website you are currently looking at!...</p>
+        <div class="tech-icons">
+          <i class="fa fa-react"></i>
+          <i class="fa fa-sass"></i>
+          <i class="fa fa-git"></i>
+        </div>
       </div>
     </div>
-    <div class="project-card">
-      <img src="path-to-project-image2.jpg" alt="Project 2 Image">
-      <h3>Project 2: Portfolio Website</h3>
-      <p>Yes, I developed the website you are currently looking at!...</p>
-      <div class="tech-icons">
-        <i class="fa fa-react"></i>
-        <i class="fa fa-sass"></i>
-        <i class="fa fa-git"></i>
-      </div>
-    </div>
+    <div class="carousel-dots"></div>
   </div>
 </section>
   <!-- Experience Section -->
@@ -124,12 +129,12 @@
         <i class="fa fa-cloud"></i>
         <i class="fa fa-git"></i>
       </div>
-      <p class="experience-dates">AUGUST 2023 - MARCH 2024</p>
+      <p class="experience-dates">AUGUST 2023 - April 2023</p>
       <ul class="experience-details">
-        <li>Built Python, Django, Asyncio backends with Rust, Clojure, gRPC microservices for real-time payments and fraud detection.</li>
-        <li>Automated CI/CD with Terraform, Jenkins, Azure DevOps, deploying TensorFlow models with Databricks and Azure Synapse.</li>
-        <li>Integrated Apache Kafka for streaming data, OAuth2 APIs for 500K+ transactions using Docker, Kubernetes, and AKS.</li>
-        <li>Automated ETL with Azure Data Factory, Airflow, and LangChain, enabling real-time fraud detection with Cosmos DB.</li>
+        <li>Built responsive UIs using React, Redux, and TypeScript for real-time banking applications.</li>
+        <li>Developed secure backend systems with Python and Django for real-time transactions and fraud detection.</li>
+        <li>Automated CI/CD pipelines using Azure DevOps and GitHub Actions for seamless deployments.</li>
+        <li>Deployed real-time machine learning pipelines with Kubernetes and MLOps practices.</li>
       </ul>
     </div>
     <!-- <div class="experience-card">
@@ -167,12 +172,12 @@
         <i class="fa fa-cloud"></i>
         <i class="fa fa-git"></i>
       </div>
-      <p class="experience-dates">JULY 2021 - AUGUST 2022</p>
+      <p class="experience-dates">February 2018 - July 2020</p>
       <ul class="experience-details">
-        <li>Developed Python, Django, MySQL, PostgreSQL apps with Databricks, AWS Lambda ETL, and Redis for fast caching.</li>
-        <li>Built AWS EC2, RDS infrastructure with CloudFormation, Ansible, and Django REST APIs for scalable deployments.</li>
-        <li>Designed Kafka pipelines for real-time streaming with Pandas scripts for analysis and dynamic dashboards.</li>
-        <li>Implemented CI/CD with Git, Pytest, and Bash scripting for consistent deployments across all environments.</li>
+        <li>Built and maintained full-stack applications with Django and PostgreSQL for scalable data solutions.</li>
+        <li>Automated ETL processes using Python and Databricks, integrating AWS Lambda for backend automation.</li>
+        <li>Created real-time data pipelines with Apache Kafka for advanced analytics.</li>
+        <li>Developed high-performance web applications hosted on AWS EC2 with seamless user interactions.</li>
       </ul>
     </div>
   </div>
@@ -261,10 +266,10 @@
   <p class="contact-intro">I have got just what you need Let's talk.</p>
   <div class="contact-details">
     <div class="contact-item">
-      <i class="fa fa-phone"></i> +1 (301) 660-5327
+      <i class="fa fa-phone"></i> +1 (346) 409-5168
     </div>
     <div class="contact-item">
-      <i class="fa fa-envelope"></i> venkatasainathreddypedab@gmail.com
+      <i class="fa fa-envelope"></i> venkatasainathreddyp@gmail.com
     </div>
     <div class="contact-item">
       <i class="fa fa-map-marker"></i> Pennsylvania, USA
@@ -280,7 +285,7 @@
   <button type="submit">Submit</button>
   </form>
   <div class="bottom-social-icons">
-    <a href="https://www.linkedin.com/in/venkatasainathreddypedaballi8901" target="_blank" aria-label="LinkedIn">
+    <a href="https://www.linkedin.com/in/venkatasainathp" target="_blank" aria-label="LinkedIn">
       <i class="fa fa-linkedin"></i>
     </a>
     <a href="https://github.com/Venkatasainathreddy8901" target="_blank" aria-label="GitHub">
@@ -289,9 +294,9 @@
   </div>
 </section>
   <!-- Home Button with Icon -->
-  <button id="homeButton">
+  <!-- <button id="homeButton">
     <i class="fas fa-home"></i>
-  </button>
+  </button> -->
   <script src="script.js"></script>
 </body>
 </html>
