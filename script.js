@@ -151,10 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const typedText = document.getElementById("typed-text");
 const textArray = [
-  "Hi, This is Venkata Sainath Reddy Pedaballi.",
-  "Building intelligent systems.",
-  "Creating scalable AI solutions.",
-  "Empowering data-driven decisions.",
+  "Hi, This is Venkata Sainath Reddy Pedaballi",
+  "Building intelligent systems",
+  "Creating scalable AI solutions",
+  "Empowering data-driven decisions",
 ];
 const typingSpeed = 100; // Speed of typing
 const erasingSpeed = 50; // Speed of erasing
